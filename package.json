@@ -1,0 +1,19 @@
+{
+  "name": "counter-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Danial Hendi",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "child_process": "^1.0.2",
+    "crawler-request": "^1.2.2",
+    "express": "^4.17.1",
+    "textract": "^2.5.0",
+    "words-count": "^2.0.2"
+  }
+}
