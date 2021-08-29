@@ -74,7 +74,12 @@ app.post("/", function(req, res) {
 
       py.on('exit', (code) => {
         console.log("Process quit with code : " + code);
+
+
     });
+
+    py.stdin.end();
+
  
 //--------------------------------------------------------------------------------------------
 
