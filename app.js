@@ -60,7 +60,7 @@ app.post("/", function(req, res) {
 
           if(!err) {
             console.log(text);
-            res.json(wc(text));
+            res.json(wc(JSON.stringify(text)));
           } else {
             console.log(err);
           }
