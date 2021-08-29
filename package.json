@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "make test",
-    "start": "node app.js"
+    "start": "node app.js",
+    "gunicorn" : "py pythoncode.py"
   },
   "author": "Danial Hendi",
   "license": "ISC",
