@@ -5,8 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "make test",
-    "start": "node app.js",
-    "gunicorn" : "py pythoncode.py"
+    "start": "node app.js"
   },
   "author": "Danial Hendi",
   "license": "ISC",
@@ -15,6 +14,7 @@
     "child_process": "^1.0.2",
     "crawler-request": "^1.2.2",
     "express": "^4.17.1",
+    "letter-count": "^3.2.0",
     "textract": "^2.5.0",
     "words-count": "^2.0.2"
   }
