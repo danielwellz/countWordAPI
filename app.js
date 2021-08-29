@@ -96,6 +96,7 @@ app.post("/", function (req, res) {
         //--------------------------------------------------------------------------------------------
 
       } else {
+
         res.json({words: wc(response.text),
           chars: lc.count('-c', response.text).chars,
           num: lc.count('-n', response.text).numbers});
@@ -112,8 +113,9 @@ app.post("/", function (req, res) {
       } else {
 
         res.json({ words: wc(text),
-          chars: lc.count('-c', text),
-          num: lc.count('-n', text)});
+          chars: lc.count('-c', text).chars,
+          num: lc.count('-n', text).numbers
+        });
       }
     });
 
