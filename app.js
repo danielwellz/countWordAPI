@@ -2,7 +2,6 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const textract = require('textract');
 const lc = require('letter-count');
-
 function cfe(fileName) {
   extension = fileName.split('.').pop();
   return extension;
@@ -72,8 +71,8 @@ app.post("/", function (req, res) {
               console.log(text);
               res.json({
                 words: wc(text),
-                chars: lc.count('-c', text),
-                num: lc.count('-n', text)
+                chars: lc.count('-c', text).chars,
+                num: lc.count('-n', text).numbers
               });
             } else {
               console.log(err);
@@ -166,5 +165,5 @@ function wc(str) {
     ++i;
   }
 
-  return "total number of words : " + wc;
+  return wc;
 }
