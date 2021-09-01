@@ -34,18 +34,21 @@ app.post("/", function (req, res) {
 
   const extention = cfe(link);
 
+  console.log(link);
+  console.log(extention);
+
 
   if (extention === "pdf") {
 
     crawler(link).then(function (response) {
-      
+      console.log(response.type);
 
       let length = response.text.length;
       const enter = "\n";
 
       //----------------------------------------------------------------------------
 
-      if (response.text === enter.repeat(length)) {
+      if (response.text === enter.repeat(length) || response.type === 'none') {
         console.log("this is a scanned pdf!");
         console.time("pdftime")
 
@@ -68,7 +71,7 @@ app.post("/", function (req, res) {
           textract.fromFileWithPath("out_text.txt", function (err, text) {
 
             if (!err) {
-              console.log(text);
+              console.log("successfull");
               res.json({
                 words: wc(text),
                 chars: lc.count('-c', text).chars,
