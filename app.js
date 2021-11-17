@@ -34,30 +34,15 @@ app.post("/", function (req, res) {
 
   const extention = cfe(link);
 
-  console.log(link);
-  console.log(extention);
-
-
   if (extention === "pdf") {
 
     crawler(link).then(function (response) {
-      console.log(response.type);
-
       let length = response.text.length;
       const enter = "\n";
-
       //----------------------------------------------------------------------------
-
       if (response.text === enter.repeat(length) || response.type === 'none') {
-        console.log("this is a scanned pdf!");
-        console.time("pdftime")
-
         arg1 = link;
-
         py = spawn('python', ['pythoncode.py', arg1])
-
-        console.log("running")
-
         py.stdout.on('data', (data) => {
 
           // console.log(data);
@@ -71,7 +56,6 @@ app.post("/", function (req, res) {
           textract.fromFileWithPath("out_text.txt", function (err, text) {
 
             if (!err) {
-              console.log("successfull");
               res.json({
                 words: wc(text),
                 chars: lc.count('-c', text).chars,
@@ -124,10 +108,8 @@ app.post("/", function (req, res) {
     //----------------------------------------------------------------------------------------------
 
   } else {
-    console.log("extention not supported!");
   }
 });
-console.timeEnd("runtime")
 
 //--------------------------------------------------------------------------
 
