@@ -12,17 +12,17 @@ if os.path.isfile("out_text.txt"):
 
 pdf_path = sys.argv[1]
 
-name = "Test"
+# name = "Test"
 
-def download_file(download_url, filename):
-    response = urllib.request.urlopen(download_url)    
-    file = open(filename + ".pdf", 'wb')
-    file.write(response.read())
-    file.close()
+# def download_file(download_url, filename):
+#     response = urllib.request.urlopen(download_url)    
+#     file = open(filename + ".pdf", 'wb')
+#     file.write(response.read())
+#     file.close()
  
-download_file(pdf_path, name)
+# download_file(pdf_path, name)
 
-images = convert_from_path(name + ".pdf", 500,poppler_path=r'poppler-0.68.0\bin')
+images = convert_from_path('public/' + pdf_path, 500,poppler_path=r'poppler-0.68.0\bin')
 
   
 '''
